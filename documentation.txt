@@ -1,0 +1,125 @@
+Day 1 – Basic Linux Commands
+ls – Lists files and directories in the current location.
+
+pwd – Prints the current working directory path.
+
+touch <filename> – Creates an empty file.
+
+cat <filename> – Displays the content of a file.
+
+cd <path> – Changes the current directory.
+
+mkdir <folder> – Creates a new folder.
+
+rm <file> – Deletes a file.
+
+man <command> – Opens the manual page for a command.
+
+clear – Clears the terminal screen.
+
+vim <filename> – Opens a file in the Vim editor.
+
+whoami – Shows the currently logged-in user.
+
+Day 2 – Users, Groups, and Permissions
+sudo adduser <username> – Creates a new user.
+
+chmod 777 <filename> – Sets full read, write, and execute permissions for all.
+
+chown <newowner> <filename> – Changes the file ownership to another user.
+
+Vim Shortcuts:
+i – Enters insert mode to edit text.
+
+:wq – Saves and exits Vim.
+
+:q! – Exits Vim without saving.
+
+./file.sh – Executes a shell script.
+
+Day 3 – File Paths and Utilities
+cd /path – Navigates using absolute path from root.
+
+cd folder – Navigates using relative path from current directory.
+
+ls -lt – Lists files sorted by modification time (latest first).
+
+file <filename> – Shows the type of content inside a file.
+
+less <filename> – Views file content with scroll/search. Use q to exit.
+
+/search in less – Searches for a keyword inside a file.
+
+history – Shows command history. Use Ctrl + R to search previous commands.
+
+cp file dir/ – Copies a file into a directory.
+
+cp -r dir1 dir2/ – Recursively copies one directory into another.
+
+cp -i file dir/ – Prompts before overwriting during copy.
+
+mv old new – Renames or moves a file.
+
+mv -b file dir/ – Moves file and keeps a backup if overwritten (~ suffix).
+
+head -n 10 file – Shows first 10 lines of a file.
+
+tail -n 10 file – Shows last 10 lines of a file.
+
+tail -f file – Continuously displays new lines added to a file (live view).
+
+find <dir> -name <filename> – Searches for files by name.
+
+find <dir> -type d -name <folder> – Searches for directories by name.
+
+find <dir> -type f -name <file> – Searches for regular files by name.
+
+Day 4 – I/O Redirection, Pipes, and File Utilities
+echo "text" > file – Replaces file content with "text".
+
+echo "text" >> file – Appends "text" at the end of the file.
+
+ls | grep pattern – Filters list output for matching pattern.
+
+ls | tee file.txt – Saves output to a file while displaying it.
+
+cut command:
+cut -c 5 file – Shows the 5th character of each line.
+
+cut -f 2 file – Extracts the 2nd field (tab-delimited) from each line.
+
+cut -f 1 -d " " file – Extracts 1st field separated by space.
+
+cut -f 5 -d "," file – Extracts 5th field separated by commas.
+
+cut -c 5-10 file – Shows characters from 5 to 10.
+
+cut -c 5- file – Shows characters from position 5 onwards.
+
+cut -c -5 file – Shows first 5 characters.
+
+cat -A file – Makes tabs and special characters visible.
+
+Tabs & Expansion:
+expand file > new.txt – Converts tabs to spaces.
+
+unexpand -a new.txt > result.txt – Converts spaces back to tabs.
+
+Splitting Files:
+split -l 5 file part_ – Splits file into chunks of 5 lines each.
+
+split -b 200 file part_ – Splits file into chunks of 200 bytes.
+
+Join Files
+join file1 file2 – Joins files based on the first column.
+
+join -1 2 -2 1 file1 file2 – Joins using column 2 of file1 and column 1 of file2.
+
+Sorting Files
+sort file – Sorts file content in ascending order.
+
+sort -r file – Sorts content in descending order.
+
+sort -n file – Sorts numbers in ascending order.
+
+sort -rn file – Sorts numbers in descending order.
