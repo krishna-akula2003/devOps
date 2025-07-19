@@ -20,11 +20,12 @@ clear – Clears the terminal screen.
 vim <filename> – Opens a file in the Vim editor.
 
 whoami – Shows the currently logged-in user.
+.................................................................................................................................................................................................
 
 Day 2 – Users, Groups, and Permissions
 sudo adduser <username> – Creates a new user.
 
-chmod 777 <filename> – Sets full read, write, and execute permissions for all.
+chmod 777 <filename> – Sets full read, write, and execute permissions for all
 
 chown <newowner> <filename> – Changes the file ownership to another user.
 
@@ -36,6 +37,7 @@ i – Enters insert mode to edit text.
 :q! – Exits Vim without saving.
 
 ./file.sh – Executes a shell script.
+.................................................................................................................................................................................................
 
 Day 3 – File Paths and Utilities
 cd /path – Navigates using absolute path from root.
@@ -73,6 +75,7 @@ find <dir> -name <filename> – Searches for files by name.
 find <dir> -type d -name <folder> – Searches for directories by name.
 
 find <dir> -type f -name <file> – Searches for regular files by name.
+.................................................................................................................................................................................................
 
 Day 4 – I/O Redirection, Pipes, and File Utilities
 echo "text" > file – Replaces file content with "text".
