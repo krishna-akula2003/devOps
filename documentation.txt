@@ -17,6 +17,8 @@ man <command> – Opens the manual page for a command.
 
 clear – Clears the terminal screen.
 
+whatis <command related keyword> -this gives u simple understanding of the command usage in one line
+
 vim <filename> – Opens a file in the Vim editor.
 
 whoami – Shows the currently logged-in user.
