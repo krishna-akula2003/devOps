@@ -17,6 +17,8 @@ man <command> – Opens the manual page for a command.
 
 clear – Clears the terminal screen.
 
+su <username> - to change  to another user
+
 whatis <command related keyword> -this gives u simple understanding of the command usage in one line
 
 vim <filename> – Opens a file in the Vim editor.
@@ -30,6 +32,8 @@ sudo adduser <username> – Creates a new user.
 chmod 777 <filename> – Sets full read, write, and execute permissions for all
 
 chown <newowner> <filename> – Changes the file ownership to another user.
+
+ if u want to change both the file and group this is the command --> chown username:groupname filename
 
 Vim Shortcuts:
 i – Enters insert mode to edit text.
@@ -66,7 +70,7 @@ mv old new – Renames or moves a file.
 
 mv -b file dir/ – Moves file and keeps a backup if overwritten (~ suffix).
 
-head -n 10 file – Shows first 10 lines of a file.
+head -n 10 file – Shows first 10 lines of a file.   // if u need 1st 10 lines of log file u can do -- head -n 10 /var/log/syslog
 
 tail -n 10 file – Shows last 10 lines of a file.
 
@@ -108,7 +112,7 @@ cat -A file – Makes tabs and special characters visible.
 Tabs & Expansion:
 expand file > new.txt – Converts tabs to spaces.
 
-unexpand -a new.txt > result.txt – Converts spaces back to tabs.
+unexpand -a new.txt > result.txt – Converts spaces back to tabs.  // here -a stands for convert spaces to tabs in the whole file but if u not mention it searches at only at starting of each line in the file for possible converstion of spaces tabs.
 
 Splitting Files:
 split -l 5 file part_ – Splits file into chunks of 5 lines each.
@@ -121,10 +125,12 @@ join file1 file2 – Joins files based on the first column.
 join -1 2 -2 1 file1 file2 – Joins using column 2 of file1 and column 1 of file2.
 
 Sorting Files
-sort file – Sorts file content in ascending order.
+sort file – Sorts file content in in alphabetical order.
 
-sort -r file – Sorts content in descending order.
+sort -r file – Sorts content in reverse of default sorting order.
 
-sort -n file – Sorts numbers in ascending order.
+sort -n file – this is actually used when the content is numeric it sorts in ascending order.
 
-sort -rn file – Sorts numbers in descending order.
+sort -rn file – this is also for numeric content ,as -r is used it reverses the default sorting(ascending order) and Sorts numbers in descending order.
+
+sort -n -k3 file -- this sorts based on column here for example  i mentioned  3  so it sorts based on 3rd column and based on column data type here i choose -n as my third column is numerical.
