@@ -17,7 +17,7 @@ script_log="$backup/compression_log_$DATE.txt"
 
 mkdir -p "$backup"
 
-echo "log compression started at $DATE" > "$script_log"
+echo "log compression started at $date" > "$script_log"
 
 old_logs=$(find "$log_path" -type f \( -name "*.log.1" -o -name "*.log.2" \))
 
