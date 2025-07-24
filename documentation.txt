@@ -134,3 +134,35 @@ sort -n file – this is actually used when the content is numeric it sorts in a
 sort -rn file – this is also for numeric content ,as -r is used it reverses the default sorting(ascending order) and Sorts numbers in descending order.
 
 sort -n -k3 file -- this sorts based on column here for example  i mentioned  3  so it sorts based on 3rd column and based on column data type here i choose -n as my third column is numerical.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+day -8
+The first line of the shell script file begins with a "sha-bang" (#!) which is not read as a comment, followed by the full path where the shell interpreter is located. 
+
+This path, tells the operating system that this file is a set of commands to be fed into the interpreter indicated.
+
+which command gives the path of the thing u need like 
+
+which <installed software> like  ex: which python , which git 
+
+—> use of this command is to check the path of its installment , and is it there or not .
+
+Encapsulating the variable name with "" will preserve any white space values
+
+
+
+
+greeting='Hello        world!'
+echo $greeting" now with spaces: $greeting"
+
+
+
+Encapsulating the variable name with ${} is used to avoid ambiguity , here to get a clear vision of the variable we use ${variable name}    THIS IS OPTIONAL
+
+MyFirstLetters=ABC
+echo "The first 10 letters in the alphabet are: ${MyFirstLetters}DEFGHIJ"
+
+if [ m -eq 1]  ——— > -eq used for numerical
+
+if [m == “sai”] ————> used for strings = or ==
