@@ -166,3 +166,54 @@ echo "The first 10 letters in the alphabet are: ${MyFirstLetters}DEFGHIJ"
 if [ m -eq 1]  ——— > -eq used for numerical
 
 if [m == “sai”] ————> used for strings = or ==
+
+------------------------------------------------------------------------------------------------------------------------
+
+day 10
+
+
+
+Day 10 – CronTab Basics (Linux Task Scheduler)
+==============================================
+
+What is CronTab?
+----------------
+CronTab automates repetitive tasks on Linux (e.g., backups, monitoring, reports).
+
+Basic Syntax:
+-------------
+* * * * * /path/to/script.sh
+│ │ │ │ │
+│ │ │ │ └── Day of week (0–7, Sun=0/7)
+│ │ │ └──── Month (1–12)
+│ │ └────── Day of month (1–31)
+│ └──────── Hour (0–23)
+└────────── Minute (0–59)
+
+Common Commands:
+----------------
+- crontab -l → List jobs
+- crontab -e → Edit/add job
+
+Examples:
+---------
+- Run every day at 9:30 PM:
+  30 21 * * * /home/user/script.sh
+
+- Run once at boot:
+  @reboot /home/user/startup.sh
+
+Shortcuts:
+----------
+@reboot  - At system startup
+@daily   - Every day @ midnight
+@weekly  - Every Sunday @ 12AM
+@monthly - 1st of month @ 12AM
+@yearly  - Jan 1st @ 12AM
+
+Use Cases:
+----------
+- Start server at boot (@reboot)
+- Disk usage check daily
+- Auto-backup every week
+- Log cleaner every hour
