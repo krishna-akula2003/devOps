@@ -217,3 +217,181 @@ Use Cases:
 - Disk usage check daily
 - Auto-backup every week
 - Log cleaner every hour
+
+------------------------------------------------------------------------------------------------------------------
+
+DAY 11 ,DAY 12
+
+# 📘 Networking Basics for DevOps
+
+This documentation covers foundational networking concepts, explained with real-world examples, IP calculations, and commands.
+
+---
+
+## 🔹 1. **IP Address**
+
+**What is it?**
+An IP address is a unique identifier assigned to every device connected to a network. It ensures that data sent over a network reaches the correct destination.
+
+### 🔸 Use Case:
+
+Imagine your laptop is connected to a Wi-Fi network. It gets assigned an IP address like `192.168.1.100` by the router. This allows the router to recognize and communicate with your laptop, and also differentiate it from other connected devices.
+
+### 🔸 Command:
+
+```bash
+ip a           # Shows IP addresses of all interfaces
+```
+
+---
+
+## 🔹 2. **Subnetting**
+
+**What is it?**
+Subnetting divides a large IP network into smaller, manageable subnetworks. This improves routing efficiency and enhances security.
+
+### 🔸 Use Case:
+
+Suppose your office has 300 devices. You receive an IP block `192.168.0.0/24`, which gives 256 IPs (254 usable). You can create subnets for different departments like:
+
+* HR: `192.168.0.0/26` → 64 IPs (62 usable)
+* IT: `192.168.0.64/26` → 64 IPs (62 usable)
+* Admin: `192.168.0.128/26` → 64 IPs (62 usable)
+* Guest: `192.168.0.192/26` → 64 IPs (62 usable)
+
+This allows better traffic control and isolation.
+
+### 🔸 Command:
+
+```bash
+ipcalc 192.168.0.0/25    # If ipcalc is installed
+```
+
+---
+
+## 🔹 3. **Ports**
+
+**What is it?**
+Ports are logical endpoints for communication. While an IP address identifies a device, ports identify specific processes/services on that device.
+
+### 🔸 Use Case:
+
+Let’s say your server has IP `192.168.1.10`. It hosts a website and an SSH server:
+
+* Website uses port `80`
+* SSH uses port `22`
+
+So a user typing `http://192.168.1.10` sends a request to port `80`, while SSH clients connect to port `22`. Without ports, your system wouldn't know which application should handle incoming traffic.
+
+### 🔸 Command:
+
+```bash
+sudo ss -tuln      # Show open ports and services
+```
+
+---
+
+## 🔹 4. **DNS (Domain Name System)**
+
+**What is it?**
+DNS translates domain names (like `google.com`) into IP addresses that machines understand.
+
+### 🔸 Use Case:
+
+When you type `openai.com` into a browser, your system contacts a DNS server to resolve it into an IP like `104.22.61.161`. Without DNS, you'd need to memorize and type IP addresses instead of names.
+
+### 🔸 Command:
+
+```bash
+dig google.com +short      # Show IP of domain
+host google.com            # Another way
+```
+
+---
+
+## 🔹 5. **NAT (Network Address Translation)**
+
+**What is it?**
+NAT allows multiple devices on a private network to access the internet using a single public IP address.
+
+### 🔸 Use Case:
+
+At home, your devices have private IPs (like `192.168.0.x`). When you open YouTube, your router (which has a public IP) sends the request on your behalf and maps the incoming response back to your device. NAT hides internal IPs from the external world.
+
+### 🔸 Command:
+
+```bash
+ip a             # Check private IP
+curl ifconfig.me # Check public IP (via NAT)
+```
+
+---
+
+## 🔹 6. **Routing**
+
+**What is it?**
+Routing decides how data travels across networks, hopping from one router to another until it reaches its destination.
+
+### 🔸 Use Case:
+
+You run `ping google.com` from your terminal. Your data doesn't go directly to Google but passes through various routers. Each router reads its routing table to decide the next hop.
+
+### 🔸 Command:
+
+```bash
+ip route                    # Show routing table
+traceroute google.com       # Show route taken to Google
+```
+
+---
+
+## 🔹 7. **Default Gateway**
+
+**What is it?**
+The default gateway is the device (usually a router) that your system sends all traffic to when it doesn't know the destination.
+
+### 🔸 Use Case:
+
+Your device is on network `192.168.1.0/24`. If you try to access `8.8.8.8` (Google DNS), your system sends it to the default gateway (e.g., `192.168.1.1`), which forwards it outside your local network.
+
+### 🔸 Command:
+
+```bash
+ip route | grep default
+```
+
+---
+
+## 🔹 8. **Firewall**
+
+**What is it?**
+A firewall monitors and filters incoming/outgoing traffic based on predefined rules.
+
+### 🔸 Use Case:
+
+You deploy a local web server on port `3000`. To let others access it, you must open this port in your firewall. Otherwise, even if the server is running, external users can't connect.
+
+### 🔸 Commands:
+
+```bash
+sudo ufw enable                # Enable firewall
+sudo ufw allow 3000           # Allow traffic to port 3000
+sudo ufw deny 3000            # Deny traffic to port 3000
+sudo ufw status verbose       # Show rules
+```
+
+---
+
+## ✅ Summary of Commands
+
+```bash
+ip a                     # Show IPs
+ipcalc 192.168.0.0/25    # Subnet calculation
+sudo ss -tuln            # Open ports
+dig google.com +short    # DNS resolve
+curl ifconfig.me         # Show public IP (NAT)
+ip route                 # Routing table
+traceroute google.com    # Network path
+sudo ufw allow 3000      # Open firewall port
+```
+
